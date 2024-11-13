@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.time.LocalDate;
 import javax.swing.*;
 import model.FinancialManager;
@@ -18,6 +20,12 @@ private FinancialManager financialManager;
     public NewJFrame() {
         initComponents();
         financialManager = new FinancialManager();
+         this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                financialManager.salvarTransacoes();
+            }
+        });
     }
 
     /**
