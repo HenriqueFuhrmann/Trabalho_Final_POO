@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
@@ -20,10 +21,12 @@ private FinancialManager financialManager;
     public NewJFrame() {
         initComponents();
         financialManager = new FinancialManager();
+         this.setTitle("Controle Financeiro");
          this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 financialManager.salvarTransacoes();
+                
             }
         });
     }
@@ -45,14 +48,21 @@ private FinancialManager financialManager;
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jScrollPane1.setBackground(new java.awt.Color(0, 153, 0));
+        jScrollPane1.setForeground(new java.awt.Color(0, 153, 0));
+        jScrollPane1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setBackground(new java.awt.Color(51, 255, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(0, 204, 51));
+        jButton1.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 24)); // NOI18N
         jButton1.setText("Entradas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +71,7 @@ private FinancialManager financialManager;
         });
 
         jButton2.setBackground(new java.awt.Color(245, 45, 45));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 24)); // NOI18N
         jButton2.setText("Despesas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,8 +79,8 @@ private FinancialManager financialManager;
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 24)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Extrato");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -79,8 +89,8 @@ private FinancialManager financialManager;
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton4.setBackground(new java.awt.Color(102, 102, 102));
+        jButton4.setFont(new java.awt.Font("Copperplate Gothic Bold", 1, 24)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Saldo Atual");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -98,34 +108,35 @@ private FinancialManager financialManager;
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addGap(114, 114, 114))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addGap(0, 48, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         addIncome();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -141,81 +152,124 @@ private FinancialManager financialManager;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         viewBalanceTillToday();  
     }//GEN-LAST:event_jButton4ActionPerformed
-private void addIncome() {
-        try {
-            String amountStr = JOptionPane.showInputDialog("Enter the income amount:");
-            if (amountStr == null) return;  // Cancel button was clicked
-            double amount = Double.parseDouble(amountStr);
+  
+    private void addIncome() {
+    try {
+        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
 
-            String dateStr = JOptionPane.showInputDialog("Enter the income date (YYYY-MM-DD):");
-            if (dateStr == null) return;
-            LocalDate date = LocalDate.parse(dateStr);
+        panel.add(new JLabel("Adicione o valor da entrada:"));
+        JTextField amountField = new JTextField();
+        panel.add(amountField);
 
-            String category = JOptionPane.showInputDialog("Enter the income category (e.g., Salary):");
-            if (category == null) return;
+        panel.add(new JLabel("Adicione a data da entrada (YYYY-MM-DD):"));
+        JTextField dateField = new JTextField();
+        panel.add(dateField);
+
+        panel.add(new JLabel("Adicione a categoria da entrada:"));
+        JTextField categoryField = new JTextField();
+        panel.add(categoryField);
+
+        Object[] options = {"Confirmar", "Cancelar"};
+        int result = JOptionPane.showOptionDialog(
+            this,
+            panel,
+            "Adicionar Entrada",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE,
+            null,
+            options,
+            options[0]
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            double amount = Double.parseDouble(amountField.getText());
+            LocalDate date = LocalDate.parse(dateField.getText());
+            String category = categoryField.getText();
 
             Income income = new Income(amount, date, category);
-            financialManager.addTransaction(income); // Add the income to the FinancialManager
+            financialManager.addTransaction(income); 
 
-            jTextArea1.setText("Income added successfully!\nCurrent Balance: " + financialManager.getCurrentBalance());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "Input Error", JOptionPane.ERROR_MESSAGE);
+            jTextArea1.setText("Entrada adicionada!\nSaldo Atual: R$ " + String.format("%.2f", financialManager.getCurrentBalance()));
         }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage(), "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
     }
+}
 
     private void addExpense() {
-        try {
-            String amountStr = JOptionPane.showInputDialog("Enter the expense amount:");
-            if (amountStr == null) return;  // Cancel button was clicked
-            double amount = Double.parseDouble(amountStr);
+    try {
+        JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
 
-            String dateStr = JOptionPane.showInputDialog("Enter the expense date (YYYY-MM-DD):");
-            if (dateStr == null) return;
-            LocalDate date = LocalDate.parse(dateStr);
+        panel.add(new JLabel("Adicione o valor da despesa:"));
+        JTextField amountField = new JTextField();
+        panel.add(amountField);
 
-            String category = JOptionPane.showInputDialog("Enter the expense category (e.g., Food):");
-            if (category == null) return;
+        panel.add(new JLabel("Adicione a data da despesa (YYYY-MM-DD):"));
+        JTextField dateField = new JTextField();
+        panel.add(dateField);
+
+        panel.add(new JLabel("Adicione a categoria da despesa:"));
+        JTextField categoryField = new JTextField();
+        panel.add(categoryField);
+
+        Object[] options = {"Confirmar", "Cancelar"};
+        int result = JOptionPane.showOptionDialog(
+            this,
+            panel,
+            "Adicionar Despesa",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.PLAIN_MESSAGE,
+            null,
+            options,
+            options[0]
+        );
+
+        if (result == JOptionPane.OK_OPTION) {
+            double amount = Double.parseDouble(amountField.getText());
+            LocalDate date = LocalDate.parse(dateField.getText());
+            String category = categoryField.getText();
 
             Expense expense = new Expense(amount, date, category);
-            financialManager.addTransaction(expense); // Add the expense to the FinancialManager
+            financialManager.addTransaction(expense); 
 
-            jTextArea1.setText("Expense added successfully!\nCurrent Balance: " + financialManager.getCurrentBalance());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "Input Error", JOptionPane.ERROR_MESSAGE);
+            jTextArea1.setText("Despesa adicionada!\nExtrato: R$ " + String.format("%.2f", financialManager.getCurrentBalance()));
         }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage(), "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
     }
+}
 
     private void viewTransactions() {
-        StringBuilder report = new StringBuilder("Transactions:\n");
-        for (Transaction transaction : financialManager.getTransactionsSortedByDate()) {
-            report.append(transaction.getType())
-                  .append(": ")
-                  .append(transaction.getAmount())
-                  .append(" on ")
-                  .append(transaction.getDate())
-                  .append(" (")
-                  .append(transaction.getCategory())
-                  .append(")\n");
-        }
-        jTextArea1.setText(report.toString());
+    StringBuilder report = new StringBuilder("Extrato de Transações:\n\n");
+    for (Transaction transaction : financialManager.getTransactionsSortedByDate()) {
+        report.append(transaction.getType())
+              .append(": R$ ")
+              .append(String.format("%.2f", transaction.getAmount()))
+              .append(" em ")
+              .append(transaction.getDate())
+              .append(" (")
+              .append(transaction.getCategory())
+              .append(")\n");
     }
+    jTextArea1.setText(report.toString());
+}
 
-    // New method to view balance till today
     private void viewBalanceTillToday() {
-        double balance = financialManager.getBalanceUpToDate(LocalDate.now()); // Get balance till today
-        jTextArea1.setText("Balance Till Today: " + balance);
+        double balance = financialManager.getBalanceUpToDate(LocalDate.now());
+        jTextArea1.setText("Saldo Atual: R$ " + String.format("%.2f", balance));
     }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewJFrame().setVisible(true);
-            }
-        });
-    }
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            NewJFrame frame = new NewJFrame();
+            frame.setVisible(true);  // Exibe a janela
+            frame.setLocationRelativeTo(null);  // Centraliza a janela na tela
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

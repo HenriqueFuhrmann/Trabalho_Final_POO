@@ -9,6 +9,7 @@ public class Expense extends FinancialEntry {
 
     @Override
     public String getType() {
-        return "Expense";
+        return "Despesa";
+        
     }
 }

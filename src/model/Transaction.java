@@ -6,5 +6,5 @@ public interface Transaction {
     double getAmount();
     LocalDate getDate();
     String getCategory();
-    String getType(); // "Income" or "Expense"
+    String getType(); 
 }

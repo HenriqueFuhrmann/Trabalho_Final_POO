@@ -8,10 +8,10 @@ import java.util.List;
 
 public class FinancialManager {
     private List<Transaction> transactions = new ArrayList<>();
-    private static final String FILE_PATH = "transactions.csv"; // Caminho do arquivo CSV
+    private static final String FILE_PATH = "transactions.csv"; 
 
     public FinancialManager() {
-        carregarTransacoes();  // Carregar transações ao iniciar o programa
+        carregarTransacoes();  
     }
 
     public void addTransaction(Transaction transaction) {
@@ -21,7 +21,7 @@ public class FinancialManager {
     public double getCurrentBalance() {
         double balance = 0;
         for (Transaction t : transactions) {
-            balance += t.getType().equals("Income") ? t.getAmount() : -t.getAmount();
+            balance += t.getType().equals("Entrada") ? t.getAmount() : -t.getAmount();
         }
         return balance;
     }
@@ -29,8 +29,8 @@ public class FinancialManager {
     public double getBalanceUpToDate(LocalDate date) {
         double balance = 0;
         for (Transaction t : transactions) {
-            if (!t.getDate().isAfter(date)) {  // Checks if transaction date is on or before the given date
-                balance += t.getType().equals("Income") ? t.getAmount() : -t.getAmount();
+            if (!t.getDate().isAfter(date)) {  
+                balance += t.getType().equals("Entrada") ? t.getAmount() : -t.getAmount();
             }
         }
         return balance;
@@ -41,23 +41,21 @@ public class FinancialManager {
         return transactions;
     }
 
-    // Método para salvar transações em um arquivo CSV
     public void salvarTransacoes() {
         try {
             CsvFileHandler.saveTransactions(transactions, FILE_PATH);
-            System.out.println("Transações salvas com sucesso em " + FILE_PATH);
+            System.out.println("Transacoes salvas com sucesso em " + FILE_PATH);
         } catch (IOException e) {
-            System.err.println("Erro ao salvar transações: " + e.getMessage());
+            System.err.println("Erro ao salvar transacoes: " + e.getMessage());
         }
     }
 
-    // Método para carregar transações de um arquivo CSV
     private void carregarTransacoes() {
         try {
             transactions = CsvFileHandler.loadTransactions(FILE_PATH);
-            System.out.println("Transações carregadas com sucesso de " + FILE_PATH);
+            System.out.println("Transacoes carregadas com sucesso de " + FILE_PATH);
         } catch (IOException e) {
-            System.err.println("Erro ao carregar transações: " + e.getMessage());
+            System.err.println("Erro ao carregar transacoes: " + e.getMessage());
         }
     }
 }

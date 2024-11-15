@@ -28,6 +28,5 @@ public abstract class FinancialEntry implements Transaction {
         return category;
     }
 
-    // Abstract method to be implemented by Income and Expense
     public abstract String getType();
 }

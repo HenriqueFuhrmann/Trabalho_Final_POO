@@ -9,6 +9,6 @@ public class Income extends FinancialEntry {
 
     @Override
     public String getType() {
-        return "Income";
+        return "Entrada";
     }
 }
